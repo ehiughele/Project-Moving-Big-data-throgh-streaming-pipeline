@@ -1,0 +1,44 @@
+INSERT INTO public.historical_stock_data (stock_date, open_value, high_value, low_value, close_value, volume_traded, daily_percent_change, value_change, company_name)
+VALUES (14/01/2022, 112, 200, 105, 120, 500, 100, 20, 100);
+
+DROP TABLE IF EXISTS public.historical_stocks_data;
+
+CREATE TABLE IF NOT EXISTS public.historical_stocks_data
+(
+    stock_date character varying(56) COLLATE pg_catalog."default" NOT NULL,
+    open_value character varying(56) COLLATE pg_catalog."default" NOT NULL,
+    high_value character varying(56) COLLATE pg_catalog."default" NOT NULL,
+    low_value character varying(56) COLLATE pg_catalog."default" NOT NULL,
+    close_value character varying(56) COLLATE pg_catalog."default" NOT NULL,
+    volume_traded character varying(56) COLLATE pg_catalog."default" NOT NULL,
+    daily_percent_change character varying(56) COLLATE pg_catalog."default" NOT NULL,
+    value_change character varying(56) COLLATE pg_catalog."default" NOT NULL,
+    company_name character varying(56) COLLATE pg_catalog."default" NOT NULL
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.historical_stocks_data
+    OWNER to postgres;
+
+
+DELETE FROM public.hostorical_stock_data;
+
+/home/ec2-user/s3-drive/Scripts/
+
+
+sudo amazon-linux-extras install epel
+sudo yum install s3fs-fuse
+
+echo AKIAYDF4M4VXH2ILP7VF:7Kt5IiauID/iWY9YeN49bcoZML0//Ves+4LRC/JC > ${HOME}/.passwd-s3fs
+chmod 600 ${HOME}/.passwd-s3fs
+
+s3fs de-mbd-predict-ehibhahiemen-ughele-s3-source /home/ec2-user/s3-drive -o passwd_file=${HOME}/.passwd-s3fs
+s3fs de-mbd-predict-ehibhahiemen-ughele-s3-source /home/ec2-user/s3-drive -o passwd_file=${HOME}/.passwd-s3fs -o dbglevel=info -f -o curldbg\
+
+echo "/usr/bin/s3fs de-mbd-predict-ehibhahiemen-ughele-s3-source /home/ec2-user/s3-drive -o allow_other" >> automount-s3
+
+echo AKIAYDF4M4VXH2ILP7VF:7Kt5IiauID/iWY9YeN49bcoZML0//Ves+4LRC/JC /etc/passwd-s3fs
+chmod 600 /etc/passwd-s3fs
+
+C:\Users\HP\Downloads\_dummy.txt
